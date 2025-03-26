@@ -1,0 +1,58 @@
+{
+  "\\about": {
+    "bg-color": "#1e293b",
+    "txt-color": "#e2e8f0",
+    "cmd-color": "#94a3b8",
+    "cmd-bg-color": "#334155",
+    "cmd-accent": "#1e293b",
+    "cmd-bg-accent": "#64748b"
+  },
+  "\\elena": {
+    "bg-color": "#ffe4e6",
+    "txt-color": "#7f1d1d",
+    "cmd-color": "#9f1239",
+    "cmd-bg-color": "#fecdd3",
+    "cmd-accent": "#ffe4e6",
+    "cmd-bg-accent": "#f43f5e"
+  },
+  "\\ai": {
+    "bg-color": "#0f172a",
+    "txt-color": "#f8fafc",
+    "cmd-color": "#38bdf8",
+    "cmd-bg-color": "#1e293b",
+    "cmd-accent": "#0f172a",
+    "cmd-bg-accent": "#3b82f6"
+  },
+  "\\projects": {
+    "bg-color": "#f3f4f6",
+    "txt-color": "#1f2937",
+    "cmd-color": "#3b82f6",
+    "cmd-bg-color": "#e5e7eb",
+    "cmd-accent": "#f3f4f6",
+    "cmd-bg-accent": "#6366f1"
+  },
+  "\\contact": {
+    "bg-color": "#111827",
+    "txt-color": "#d1d5db",
+    "cmd-color": "#22d3ee",
+    "cmd-bg-color": "#1f2937",
+    "cmd-accent": "#111827",
+    "cmd-bg-accent": "#06b6d4"
+  },
+  "\\mathematics": {
+    "bg-color": "#f7fee7",
+    "txt-color": "#3f6212",
+    "cmd-color": "#65a30d",
+    "cmd-bg-color": "#d9f99d",
+    "cmd-accent": "#f7fee7",
+    "cmd-bg-accent": "#84cc16"
+  },
+  "\\iceland": {
+    "bg-color": "#e0f2fe",
+    "txt-color": "#0c4a6e",
+    "cmd-color": "#38bdf8",
+    "cmd-bg-color": "#bae6fd",
+    "cmd-accent": "#e0f2fe",
+    "cmd-bg-accent": "#0284c7"
+  }
+}

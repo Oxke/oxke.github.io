@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Sono:wght,MONO@200..800,0.19&family=Syne+Mono&display=swap");
+// @import "tailwindcss";
+
+$bg-color: var(--bg-color, #292a3d);
+$txt-color: var(--txt-color, #b8e3cf);
+$cmd-color: var(--cmd-color, #101118);
+$cmd-bg-color: var(--cmd-bg-color, #e2f3eb4a);
+$cmd-accent: var(--cmd-accent, #101118);
+$cmd-bg-accent: var(--cmd-bg-accent, #e2f3eb);
+$bg-image: var(--bg-image, undefined);
+$animation: var(--animation, about);
+
+body {
+  background-image: $bg-image;
+  background-color: $bg-color;
+  color: $txt-color;
+  zoom: 175%;
+  //box-sizing: border-box;
+  overflow-x: hidden;
+  will-change: transform;
+  transform: translateZ(0); /* Or any minor 3D transform */
+}
+
+.mainTopic {
+  // view-transition-name: content;
+  background-color: $bg-color;
+  color: $txt-color;
+  font-family: "Sono", monospace;
+  font-optical-sizing: auto;
+  // font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings: "MONO" 0.3;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 5.5em 25%;
+  justify-content: center;
+}
+@media only screen and (max-width: 900px) {
+  .mainTopic {
+    padding: 5.5em 18%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .mainTopic {
+    padding: 5.5em 5%;
+  }
+}
+
+.overlay {
+  background-color: $txt-color;
+  color: $bg-color;
+
+  mask-image: url("../public/mask.svg");
+  mask-repeat: no-repeat;
+  mask-position: top;
+  mask-size: 10em;
+  transition: clip-path 100ms;
+}
+
+h1 {
+  display: none;
+  font-size: calc(10px + 2vmin);
+  font-family: "Syne Mono", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cmd {
+  font-family: "Syne Mono", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+  padding: 0.2em 0.5em;
+  border-radius: 10pt;
+  text-align: center;
+  border: none;
+}
+
+#input {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 50%;
+  border: none;
+  outline: none;
+  // view-transition-name: input;
+}
+
+@media only screen and (max-width: 900px) {
+  #input {
+    left: 18%;
+    width: 64%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #input {
+    left: 1em;
+    width: calc(100% - 2em);
+  }
+}
+
+@keyframes elena {
+  0% {
+    clip-path: path(
+      "M 200 100 C 200 100 200 100 200 100 L 200 100 L 200 100 C 200 100 200 100 200 100 Z M 780 375 C 780 375 780 375 780 375 L 780 375 L 780 375 C 780 375 780 375 780 375 Z M 380 575 C 380 575 380 575 380 575 L 380 575 L 380 575 C 380 575 380 575 380 575 Z M 1980 875 C 1980 875 1980 875 1980 875 L 1980 875 L 1980 875 C 1980 875 1980 875 1980 875 Z M 1480 975 C 1480 975 1480 975 1480 975 L 1480 975 L 1480 975 C 1480 975 1480 975 1480 975 Z M 1280 175 C 1280 175 1280 175 1280 175 L 1280 175 L 1280 175 C 1280 175 1280 175 1280 175 Z M 680 1075 C 680 1075 680 1075 680 1075 L 680 1075 L 680 1075 C 680 1075 680 1075 680 1075 Z M 500 250 C 500 250 500 250 500 250 L 500 250 L 500 250 C 500 250 500 250 500 250 Z M 300 760 C 300 760 300 760 300 760 L 300 760 L 300 760 C 300 760 300 760 300 760 Z"
+    );
+  }
+
+  25% {
+    clip-path: path(
+      "M 200 100 c -75 -125 -320 0 -150 175 l 150 150 l 150 -150 c 170 -200 -75 -300 -150 -175 z M 780 375 C 780 375 780 375 780 375 L 780 375 L 780 375 C 780 375 780 375 780 375 Z M 380 575 C 380 575 380 575 380 575 L 380 575 L 380 575 C 380 575 380 575 380 575 Z M 1980 875 c -75 -125 -320 0 -150 175 l 150 150 l 150 -150 c 170 -200 -75 -300 -150 -175 z M 1480 975 C 1480 975 1480 975 1480 975 L 1480 975 L 1480 975 C 1480 975 1480 975 1480 975 Z M 1280 175 C 1280 175 1280 175 1280 175 L 1280 175 L 1280 175 C 1280 175 1280 175 1280 175 Z M 680 1075 C 680 1075 680 1075 680 1075 L 680 1075 L 680 1075 C 680 1075 680 1075 680 1075 Z M 500 250 C 500 250 500 250 500 250 L 500 250 L 500 250 C 500 250 500 250 500 250 Z M 300 760 C 300 760 300 760 300 760 L 300 760 L 300 760 C 300 760 300 760 300 760 Z"
+    );
+  }
+  50% {
+    clip-path: path(
+      "M 200 100 c -150 -250 -640 0 -300 350 l 300 300 l 300 -300 c 340 -400 -150 -600 -300 -350 z M 780 375 c -75 -125 -320 0 -150 175 l 150 150 l 150 -150 c 170 -200 -75 -300 -150 -175 z M 380 575 C 380 575 380 575 380 575 L 380 575 L 380 575 C 380 575 380 575 380 575 Z M 1980 875 c -150 -250 -640 0 -300 350 l 300 300 l 300 -300 c 340 -400 -150 -600 -300 -350 z M 1480 975 C 1480 975 1480 975 1480 975 L 1480 975 L 1480 975 C 1480 975 1480 975 1480 975 Z M 1280 175 C 1280 175 1280 175 1280 175 L 1280 175 L 1280 175 C 1280 175 1280 175 1280 175 Z M 680 1075 C 680 1075 680 1075 680 1075 L 680 1075 L 680 1075 C 680 1075 680 1075 680 1075 Z M 500 250 C 500 250 500 250 500 250 L 500 250 L 500 250 C 500 250 500 250 500 250 Z M 300 760 C 300 760 300 760 300 760 L 300 760 L 300 760 C 300 760 300 760 300 760 Z"
+    );
+  }
+  75% {
+    clip-path: path(
+      "M 200 100 c -300 -500 -1280 0 -600 700 l 600 600 l 600 -600 c 680 -800 -300 -1200 -600 -700 z M 780 375 c -150 -250 -640 0 -300 350 l 300 300 l 300 -300 c 340 -400 -150 -600 -300 -350 z M 380 575 C 380 575 380 575 380 575 L 380 575 L 380 575 C 380 575 380 575 380 575 Z M 1980 875 c -300 -500 -1280 0 -600 700 l 600 600 l 600 -600 c 680 -800 -300 -1200 -600 -700 z M 1480 975 C 1480 975 1480 975 1480 975 L 1480 975 L 1480 975 C 1480 975 1480 975 1480 975 Z M 1280 175 c -75 -125 -320 0 -150 175 l 150 150 l 150 -150 c 170 -200 -75 -300 -150 -175 z M 680 1075 c -75 -125 -320 0 -150 175 l 150 150 l 150 -150 c 170 -200 -75 -300 -150 -175 z M 500 250 C 500 250 500 250 500 250 L 500 250 L 500 250 C 500 250 500 250 500 250 Z M 300 760 C 300 760 300 760 300 760 L 300 760 L 300 760 C 300 760 300 760 300 760 Z"
+    );
+  }
+  100% {
+    clip-path: path(
+      "M 200 0 c -300 -500 -1280 0 -600 700 l 600 600 l 600 -600 c 680 -800 -300 -1200 -600 -700 z M 511 540 c -300 -500 -1500 -197 -761 966 l 407 884 l 1601 -1024 c 680 -800 1008 -2140 -273 -1420 z M 380 575 C 380 575 380 575 380 575 L 380 575 L 380 575 C 380 575 380 575 380 575 Z M 1980 875 c -300 -500 -1280 0 -600 700 l 600 600 l 600 -600 c 680 -800 -300 -1200 -600 -700 z M 1480 975 C 1480 975 1480 975 1480 975 L 1480 975 L 1480 975 C 1480 975 1480 975 1480 975 Z M 1280 9 c -150 -250 -640 0 -300 350 l 300 300 l 300 -300 c 340 -400 -150 -600 -300 -350 z M 680 1075 c -150 -250 -640 0 -300 350 l 300 300 l 300 -300 c 340 -400 -150 -600 -300 -350 z M 500 250 C 500 250 500 250 500 250 L 500 250 L 500 250 C 500 250 500 250 500 250 Z M 300 760 C 300 760 300 760 300 760 L 300 760 L 300 760 C 300 760 300 760 300 760 Z"
+    );
+  }
+}
+
+@keyframes ai {
+  0% {
+    clip-path: ellipse(100pt 100pt at 50% -100pt);
+  }
+  35% {
+    clip-path: ellipse(100pt 100pt at 50% calc(100% - 100pt));
+  }
+  45% {
+    clip-path: ellipse(130pt 70pt at 50% calc(100% - 70pt));
+  }
+  55% {
+    clip-path: ellipse(100pt 100pt at 50% calc(100% - 100pt));
+  }
+  70% {
+    clip-path: ellipse(100pt 100pt at 50% 50%);
+  }
+  100% {
+    clip-path: ellipse(100% 100% at 50% 50%);
+  }
+}
+
+@keyframes about {
+  0% {
+    clip-path: circle(0% at 50% 72pt);
+  }
+  100% {
+    clip-path: circle(100% at 50% 72pt);
+  }
+}
+
+@keyframes iceland {
+  0% {
+    clip-path: path(
+      "M 0 -1 C 62 -63 125 -95 188 -95 C 281 -95 269 1 375 -1 C 481 -3 469 -259 563 -259 C 656 -259 654 -33 750 -1 C 846 32 845 -135 938 -137 C 1030 -140 1033 12 1129 -1 C 1224 -13 1216 -188 1309 -188 C 1371 -188 1337 3 1500 -1 C 1593 11 1625 -95 1688 -95 C 1781 -95 1769 1 1875 -1 C 1981 -3 1969 -259 2063 -259 C 2156 -259 2154 -33 2250 -1 C 2340 8 2345 -135 2438 -137 C 2530 -140 2533 12 2629 -1 C 2724 -13 2716 -188 2809 -188 C 2871 -188 2935 -126 3000 -1 L 3000 -258 L 0 -258 L 0 -1 Z"
+    );
+  }
+  100% {
+    clip-path: path(
+      "M0 1499C63 2030 125 2296 188 2296 281 2296 269 1736 375 1734 481 1731 469 2132 563 2132 656 2132 654 1560 750 1593 846 1625 845 2256 938 2254 1030 2251 1033 1793 1129 1780 1224 1768 1216 2202 1309 2202 1371 2202 1390 1583 1500 1499 1713 1284 1625 2296 1688 2296 1781 2296 1769 1736 1875 1734 1981 1731 1969 2132 2063 2132 2156 2132 2154 1560 2250 1593 2346 1625 2345 2256 2438 2254 2530 2251 2533 1793 2629 1780 2724 1768 2716 2202 2809 2202 2871 2202 2935 1968 3000 1499L3000 1 0 1 0 1499Z"
+    );
+  }
+}
+
+@keyframes mathematics {
+  0% {
+    clip-path: polygon(
+      calc(50% - 50pt) -100pt,
+      calc(50% + 50pt) -100pt,
+      calc(50% + 50pt) 0,
+      calc(50% - 50pt) 0
+    );
+  }
+  15% {
+    clip-path: polygon(
+      calc(50% - 50pt) calc(50% - 50pt),
+      calc(50% + 50pt) calc(50% - 50pt),
+      calc(50% + 50pt) calc(50% + 50pt),
+      calc(50% - 50pt) calc(50% + 50pt)
+    );
+  }
+  20% {
+    clip-path: polygon(
+      calc(50% - 65pt) calc(50% - 20pt),
+      calc(50% + 65pt) calc(50% - 20pt),
+      calc(50% + 65pt) calc(50% + 50pt),
+      calc(50% - 65pt) calc(50% + 50pt)
+    );
+  }
+  30% {
+    clip-path: polygon(
+      calc(50% - 50pt) calc(50% - 50pt),
+      calc(50% + 50pt) calc(50% - 50pt),
+      calc(50% + 50pt) calc(50% + 50pt),
+      calc(50% - 50pt) calc(50% + 50pt)
+    );
+  }
+  40% {
+    clip-path: polygon(
+      calc(50% - 50pt) calc(50% - 50pt),
+      calc(50% + 150pt) calc(50% - 50pt),
+      calc(50% + 150pt) calc(50% + 50pt),
+      calc(50% - 50pt) calc(50% + 50pt)
+    );
+  }
+  50% {
+    clip-path: polygon(
+      calc(50% - 50pt) calc(50% - 50pt),
+      calc(50% + 150pt) calc(50% - 50pt),
+      calc(50% + 150pt) calc(50% + 150pt),
+      calc(50% - 50pt) calc(50% + 150pt)
+    );
+  }
+  60% {
+    clip-path: polygon(
+      calc(50% - 250pt) calc(50% - 50pt),
+      calc(50% + 150pt) calc(50% - 50pt),
+      calc(50% + 150pt) calc(50% + 150pt),
+      calc(50% - 250pt) calc(50% + 150pt)
+    );
+  }
+  70% {
+    clip-path: polygon(
+      calc(50% - 250pt) calc(50% - 250pt),
+      calc(50% + 150pt) calc(50% - 250pt),
+      calc(50% + 150pt) calc(50% + 150pt),
+      calc(50% - 250pt) calc(50% + 150pt)
+    );
+  }
+  80% {
+    clip-path: polygon(
+      calc(50% - 250pt) calc(50% - 250pt),
+      calc(50% + 550pt) calc(50% - 250pt),
+      calc(50% + 550pt) calc(50% + 150pt),
+      calc(50% - 250pt) calc(50% + 150pt)
+    );
+  }
+  85% {
+    clip-path: polygon(
+      calc(50% - 250pt) calc(50% - 250pt),
+      calc(50% + 550pt) calc(50% - 250pt),
+      calc(50% + 550pt) calc(50% + 550pt),
+      calc(50% - 250pt) calc(50% + 550pt)
+    );
+  }
+  90% {
+    clip-path: polygon(
+      0 calc(50% - 250pt),
+      calc(50% + 550pt) calc(50% - 250pt),
+      calc(50% + 550pt) calc(50% + 550pt),
+      0 calc(50% + 550pt)
+    );
+  }
+  95% {
+    clip-path: polygon(
+      0 0,
+      calc(50% + 550pt) 0,
+      calc(50% + 550pt) calc(50% + 550pt),
+      0 calc(50% + 550pt)
+    );
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+::view-transition-old(root) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: $animation 1s ease-in;
+}
