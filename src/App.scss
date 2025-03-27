@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Sono:wght,MONO@200..800,0.19&family=Syne+Mono&display=swap");
-// @import "tailwindcss";
 
 $bg-color: var(--bg-color, #292a3d);
 $txt-color: var(--txt-color, #b8e3cf);
@@ -19,6 +18,10 @@ body {
   overflow-x: hidden;
   will-change: transform;
   transform: translateZ(0); /* Or any minor 3D transform */
+  scroll-behavior: smooth;
+}
+
+.endlinks {
 }
 
 .mainTopic {
@@ -30,13 +33,9 @@ body {
   // font-weight: <weight>;
   font-style: normal;
   font-variation-settings: "MONO" 0.3;
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+  // box-sizing: border-box;
   padding: 5.5em 25%;
+  padding-bottom: 2em;
   justify-content: center;
 }
 @media only screen and (max-width: 900px) {

@@ -1,12 +1,26 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import { ReactElement } from "react";
 
 interface Props {
-  text: string;
-  onClick: (nextTopic: string) => void;
+  text?: string;
+  children?: ReactElement;
+  href?: string;
+  onClick?: (nextTopic: string) => void;
 }
 
-function TopicButton({ text, onClick }: Props) {
+function TopicButton({ text, children, href, onClick }: Props) {
+  if (!onClick) {
+    if (!href) {
+      throw new Error("onClick or href are required");
+    }
+    if (href === "#") {
+      onClick = () => (window.location.href = "#");
+    } else {
+      onClick = () => window.open(href);
+    }
+  } else if (href) console.log("href is ignored");
+
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [rotAngle, setRotAngle] = useState(50);
 
@@ -57,6 +71,7 @@ function TopicButton({ text, onClick }: Props) {
       onClick={() => onClick("\\" + text)}
     >
       {text}
+      {children}
     </motion.button>
   );
 }

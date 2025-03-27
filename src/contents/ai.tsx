@@ -8,21 +8,70 @@ function AboutAICourse({ onClickButtons }: Props) {
   return (
     <>
       <p>
-        The University of Pavia offers an exciting new course in Artificial
-        Intelligence. It's designed to provide students with a solid foundation
-        in both theoretical concepts and practical applications.
+        The{" "}
+        <TopicButton
+          href="https://portale.unipv.it/it"
+          text="University of Pavia"
+        />
+        , together with the University of Milano Statale and Milano Bicocca,
+        offers since 2021 a{" "}
+        <TopicButton href="https://bai.unipv.it/">
+          <>
+            <abbr title="Bachelor of Science">BSc</abbr> in{" "}
+            <abbr title="Artificial Intelligence">AI</abbr>
+          </>
+        </TopicButton>
+        . It's designed to provide students with many tools and some theory for
+        implementing and understanding Machine Learning models and other
+        Artificial Intelligence concepts, like Knowledge Representation, Natural
+        Language Processing, Fuzzy Systems etc...
       </p>
       <p>
-        The program covers topics such as{" "}
-        <TopicButton onClick={onClickButtons} text="about" />,{" "}
-        <TopicButton onClick={onClickButtons} text="elena" />, and{" "}
-        <TopicButton onClick={onClickButtons} text="mathematics" />.
+        Attending its courses has given me the possibility of developing many
+        small projects, most notably:
       </p>
-      <p>
-        Students will have the opportunity to work on hands-on projects, gain
-        experience with modern AI frameworks, and collaborate with researchers
-        in cutting-edge fields.
-      </p>
+      <ul>
+        <li>
+          A{" "}
+          <TopicButton
+            href="https://github.com/Oxke/Timbre-Classification"
+            text="Timbre Classification"
+          />{" "}
+          model, for classifying musical instruments by their sound, using the
+          spectrogram as the input of the model. [2024]
+        </li>
+        <li>
+          A{" "}
+          <TopicButton
+            href="https://github.com/Oxke/DL-Project"
+            text="Multi Layer Percepron"
+          />{" "}
+          for binary classification, with the addition of a method for a
+          visualisation of the weights of the model [2024]
+        </li>
+        <li>
+          An{" "}
+          <TopicButton href="https://colab.research.google.com/drive/1bUWqFVDRYLLxD1nhOArazf9lBW8Z2KlL?usp=sharing">
+            <>
+              <abbr title="Natural Language Processing">NLP</abbr> project
+            </>
+          </TopicButton>
+          aiming to detect irony in <em>X</em> tweets. It uses a Transformer
+          model constructed both from scratch and fine-tuning an existing one
+          (DistilBERT). [2024]
+        </li>
+        <li>
+          A{" "}
+          <TopicButton
+            onClick={onClickButtons}
+            text="co-existence simulation"
+          />{" "}
+          in Python using the Matplotlib library. It's a cellular automaton
+          simulating the movement and behavior of three coexistent species.
+        </li>
+      </ul>
+      Other small projects can be found on my{" "}
+      <TopicButton href="https://github.com/Oxke" text="Github" />
     </>
   );
 }

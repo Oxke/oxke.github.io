@@ -1,5 +1,6 @@
 import { ComponentType, useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import EndLinks from "./EndLinks";
 
 interface Props {
   className?: string;
@@ -53,6 +54,7 @@ function MainTopic({ className = "", topic, onClickButtons }: Props) {
   return (
     <motion.section className={"mainTopic " + className}>
       <DynamicImportContent topic={topic} onClickButtons={onClickButtons} />
+      <EndLinks onClickButtons={onClickButtons} />
     </motion.section>
   );
 }

@@ -12,13 +12,21 @@ function About({ onClickButtons }: Props) {
         couple different frameworks and coding languages.
       </p>
       <p>
-        Also, Osea is a student of{" "}
-        <TopicButton onClick={onClickButtons} text="AI" /> and{" "}
-        <TopicButton onClick={onClickButtons} text="mathematics" />
+        I am a student of <TopicButton onClick={onClickButtons} text="AI" /> and{" "}
+        <TopicButton onClick={onClickButtons} text="mathematics" /> at the{" "}
+        <TopicButton
+          href="https://portale.unipv.it/it"
+          text="University of Pavia"
+        />
       </p>
       <p>
-        Finally, the content of this website is just placeholder text. Please DO
-        NOT read it.
+        I have a lot of interests and passions and I love learning new ones.
+        Right now I'm trying to study Icelandic, even though I find it very
+        hard. Also, I am "studying" the game of Bridge.
+      </p>
+      <p>
+        Finally, I sometimes play the viola, but I don't practice it daily
+        anymore :c
       </p>
     </>
   );
