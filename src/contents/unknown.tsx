@@ -5,7 +5,9 @@ interface Props {
 }
 
 export default function Unknown({ onClickButtons }: Props) {
-  const topic: string = document.getElementById("input")["value"];
+  const topic: string = (document.getElementById("input") as HTMLInputElement)[
+    "value"
+  ];
   return (
     <>
       <p>
