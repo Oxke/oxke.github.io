@@ -24,14 +24,6 @@ function TopicButton({ text, children, href, onClick }: Props) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [rotAngle, setRotAngle] = useState(50);
 
-  const getProp = (p: string): string =>
-    document.documentElement.style.getPropertyValue(p);
-
-  const cmdColor = getProp("--cmd-color");
-  const cmdBgColor = getProp("--cmd-bg-color");
-  const cmdAccent = getProp("--cmd-accent");
-  const cmdBgAccent = getProp("--cmd-bg-accent");
-
   useEffect(() => {
     if (buttonRef.current) {
       const width = buttonRef.current.offsetWidth;
@@ -45,16 +37,30 @@ function TopicButton({ text, children, href, onClick }: Props) {
       ref={buttonRef}
       initial={{
         rotate: 0,
-        color: cmdColor,
-        backgroundColor: cmdBgColor,
+        color: "var(--cmd-color)",
+        backgroundColor: "var(--cmd-bg-color)",
       }}
       whileHover="hover"
-      whileTap={{ scale: 0.9 }}
+      whileTap="tap"
       variants={{
         hover: {
           scale: 1.1,
-          color: cmdAccent,
-          backgroundColor: cmdBgAccent,
+          color: "var(--cmd-accent)",
+          backgroundColor: "var(--cmd-bg-accent)",
+          rotate: [0, rotAngle, -rotAngle],
+          transition: {
+            rotate: {
+              repeat: Infinity,
+              repeatType: "reverse", // Makes it oscillate smoothly
+              duration: 0.4,
+              ease: "easeInOut",
+            },
+          },
+        },
+        tap: {
+          scale: 0.9,
+          color: "var(--cmd-accent)",
+          backgroundColor: "var(--cmd-bg-accent)",
           rotate: [0, rotAngle, -rotAngle],
           transition: {
             rotate: {

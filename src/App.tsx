@@ -20,7 +20,7 @@ const themes: Record<(typeof topics)[number], Theme> = themesJson;
 function applyTheme(topic: string) {
   const theme = themes[topic];
   if (!theme) {
-    console.error(`Theme "${topic}" not found`);
+    console.warn(`Theme "${topic}" not found`);
   }
 
   for (const key in theme) {
@@ -33,20 +33,21 @@ function applyTheme(topic: string) {
 
 function App() {
   const [topic, setTopic] = useState("");
-  const [actualTopic, setActualTopic] = useState("\\about");
+  const [actualTopic, setActualTopic] = useState("");
 
-  const handleChangeActualTopic = (nextTopic: string) => {
-    document.documentElement.style.setProperty(
-      "--animation",
-      nextTopic.slice(1),
-    );
+  const handleChangeActualTopic = (
+    nextTopic: string,
+    included: boolean = true,
+  ) => {
+    const t = included ? nextTopic : "\\unknown";
+    document.documentElement.style.setProperty("--animation", t.slice(1));
     if (!document.startViewTransition) {
-      applyTheme(nextTopic);
-      setActualTopic(nextTopic);
+      applyTheme(t);
+      setActualTopic(t);
     } else
       document.startViewTransition(() => {
-        applyTheme(nextTopic);
-        setActualTopic(nextTopic);
+        applyTheme(t);
+        setActualTopic(t);
       });
   };
 
@@ -61,8 +62,13 @@ function App() {
 
   return (
     <div className="cont container container-sm">
-      <MainTopic topic={topic} onClickButtons={handleChangeTopic} />
-      <InputField topic={actualTopic} value={topic} onEnter={handleChangeTopic}>
+      <MainTopic topic={actualTopic} onClickButtons={handleChangeTopic} />
+      <InputField
+        topic={actualTopic}
+        value={topic}
+        onChange={handleChangeTopic}
+        onEnter={(s: string) => handleChangeActualTopic(s, topics.includes(s))}
+      >
         \about
       </InputField>
     </div>

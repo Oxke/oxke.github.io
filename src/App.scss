@@ -148,7 +148,7 @@ h1 {
     clip-path: ellipse(100pt 100pt at 50% 50%);
   }
   100% {
-    clip-path: ellipse(100% 100% at 50% 50%);
+    clip-path: ellipse(min(100vh, 100vw) min(100vh, 100vw) at 50% 50%);
   }
 }
 
@@ -273,6 +273,72 @@ h1 {
   }
   100% {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes unknown {
+  0% {
+    opacity: 0%;
+  }
+  5% {
+    opacity: 100%;
+  }
+  10% {
+    opacity: 0%;
+  }
+  15% {
+    opacity: 100%;
+  }
+  20% {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 100%;
+  }
+  30% {
+    opacity: 0%;
+  }
+  35% {
+    opacity: 100%;
+  }
+  40% {
+    opacity: 0%;
+  }
+  45% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  55% {
+    opacity: 100%;
+  }
+  60% {
+    opacity: 0%;
+  }
+  65% {
+    opacity: 100%;
+  }
+  70% {
+    opacity: 0%;
+  }
+  75% {
+    opacity: 100%;
+  }
+  80% {
+    opacity: 0%;
+  }
+  85% {
+    opacity: 100%;
+  }
+  90% {
+    opacity: 0%;
+  }
+  95% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
   }
 }
 

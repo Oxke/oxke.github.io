@@ -1,4 +1,12 @@
 {
+  "\\unknown": {
+    "bg-color": "#0a0f1e",
+    "txt-color": "#cbd5e1",
+    "cmd-color": "#a3e635",
+    "cmd-bg-color": "#1a2b4c",
+    "cmd-accent": "#14b8a6",
+    "cmd-bg-accent": "#064e3b"
+  },
   "\\about": {
     "bg-color": "#1e293b",
     "txt-color": "#e2e8f0",
