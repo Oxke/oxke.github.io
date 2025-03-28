@@ -24,7 +24,10 @@ function AboutAICourse({ onClickButtons }: Props) {
         . It's designed to provide students with many tools and some theory for
         implementing and understanding Machine Learning models and other
         Artificial Intelligence concepts, like Knowledge Representation, Natural
-        Language Processing, Fuzzy Systems etc...
+        Language Processing, Fuzzy Systems etc... But it also provides courses
+        which are meant to give foundations in{" "}
+        <TopicButton onClick={onClickButtons} text="mathematics" /> and computer
+        science.
       </p>
       <p>
         Attending its courses has given me the possibility of developing many
