@@ -11,7 +11,7 @@ export default function EndLinks({ onClickButtons }: Props) {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
-    setIsVisible(window.scrollY > 500);
+    setIsVisible(window.scrollY > 100);
   };
 
   useEffect(() => {
@@ -27,8 +27,8 @@ export default function EndLinks({ onClickButtons }: Props) {
       className="endlinks"
     >
       <hr />
-      Scroll to <TopicButton href="#" text="👆Top" /> or go back to{" "}
-      <TopicButton onClick={onClickButtons} text="about" />
+      Scroll to <TopicButton href="#" text="👆Top" hideLink={true} /> or go back
+      to <TopicButton onClick={onClickButtons} text="about" />
     </motion.div>
   );
 }

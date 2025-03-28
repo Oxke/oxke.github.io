@@ -13,12 +13,17 @@ body {
   background-image: $bg-image;
   background-color: $bg-color;
   color: $txt-color;
-  zoom: 175%;
+  zoom: 125%;
   //box-sizing: border-box;
   overflow-x: hidden;
   will-change: transform;
   transform: translateZ(0); /* Or any minor 3D transform */
   scroll-behavior: smooth;
+}
+
+.cmd-external {
+  display: inline-flex;
+  vertical-align: middle;
 }
 
 .endlinks {
@@ -38,9 +43,11 @@ body {
   padding-bottom: 2em;
   justify-content: center;
 }
-@media only screen and (max-width: 900px) {
+
+@media only screen and (max-width: 1200px) {
   .mainTopic {
-    padding: 5.5em 18%;
+    $width: max(440px, 63%);
+    padding: 5.5em calc(50% - $width / 2);
   }
 }
 @media only screen and (max-width: 600px) {
@@ -82,17 +89,18 @@ h1 {
 #input {
   position: absolute;
   top: 0;
-  left: 25%;
-  width: 50%;
+  left: 24.5%;
+  width: 51%;
   border: none;
   outline: none;
   // view-transition-name: input;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1200px) {
   #input {
-    left: 18%;
-    width: 64%;
+    $width: max(450px, 64%);
+    left: calc(50% - $width / 2);
+    width: $width;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -154,10 +162,10 @@ h1 {
 
 @keyframes about {
   0% {
-    clip-path: circle(0% at 50% 72pt);
+    clip-path: circle(0% at 50% 50pt);
   }
   100% {
-    clip-path: circle(100% at 50% 72pt);
+    clip-path: circle(100% at 50% 50pt);
   }
 }
 

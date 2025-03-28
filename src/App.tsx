@@ -61,7 +61,7 @@ function App() {
   };
 
   return (
-    <div className="cont container container-sm">
+    <div className="cont">
       <MainTopic topic={actualTopic} onClickButtons={handleChangeTopic} />
       <InputField
         topic={actualTopic}

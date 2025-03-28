@@ -17,6 +17,7 @@ export default function Unknown({ onClickButtons }: Props) {
         <TopicButton
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           text={topic.slice(1)}
+          hideLink={true}
         />
         .
       </p>

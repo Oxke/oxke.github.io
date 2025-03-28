@@ -41,11 +41,10 @@ function AboutAICourse({ onClickButtons }: Props) {
           spectrogram as the input of the model. [2024]
         </li>
         <li>
-          A{" "}
-          <TopicButton
-            href="https://github.com/Oxke/DL-Project"
-            text="Multi Layer Percepron"
-          />{" "}
+          An{" "}
+          <TopicButton href="https://github.com/Oxke/DL-Project">
+            <abbr title="Multi Layer Perceptron">MLP</abbr>
+          </TopicButton>{" "}
           for binary classification, with the addition of a method for a
           visualisation of the weights of the model [2024]
         </li>
@@ -63,7 +62,7 @@ function AboutAICourse({ onClickButtons }: Props) {
         <li>
           A{" "}
           <TopicButton
-            onClick={onClickButtons}
+            href="https://github.com/Oxke/Planisuss"
             text="co-existence simulation"
           />{" "}
           in Python using the Matplotlib library. It's a cellular automaton
