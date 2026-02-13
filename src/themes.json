@@ -40,12 +40,12 @@
     "cmd-bg-accent": "#6366f1"
   },
   "\\contact": {
-    "bg-color": "#111827",
-    "txt-color": "#d1d5db",
-    "cmd-color": "#22d3ee",
-    "cmd-bg-color": "#1f2937",
-    "cmd-accent": "#111827",
-    "cmd-bg-accent": "#06b6d4"
+    "bg-color": "#f4ecd8",
+    "txt-color": "#3b2f2f",
+    "cmd-color": "#5a4632",
+    "cmd-bg-color": "#e8dcc0",
+    "cmd-accent": "#f6f1e5",
+    "cmd-bg-accent": "#c2a878"
   },
   "\\mathematics": {
     "bg-color": "#f7fee7",

@@ -2,8 +2,9 @@
 // Do not edit manually.
 
 export const generatedLinkMap: Record<string, string[]> = {
-  "\\about": ["\\ai", "\\mathematics"],
+  "\\about": ["\\ai", "\\contact", "\\mathematics"],
   "\\ai": ["\\mathematics"],
+  "\\contact": [],
   "\\elena": ["\\iceland", "\\mathematics"],
   "\\iceland": ["\\ai", "\\elena", "\\mathematics"],
   "\\mathematics": ["\\ai"],

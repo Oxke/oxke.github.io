@@ -30,6 +30,9 @@ function AboutAICourse({ onClickButtons }: Props) {
         science.
       </p>
       <p>
+        I graduated in December 2025 with 110/110 and honors!
+      </p>
+      <p>
         Attending its courses has given me the possibility of developing many
         small projects, most notably:
       </p>

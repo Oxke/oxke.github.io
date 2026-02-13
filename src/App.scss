@@ -213,6 +213,11 @@ h1 {
   }
 }
 
+@keyframes contact {
+  0% { clip-path: polygon(-30% 0, -30% 0, 0 50%, -30% 100%, -30% 100%); }
+  100% { clip-path:  polygon(-30% 0, 100% 0, 110% 50%, 100% 100%, -30% 100%); }
+}
+
 @keyframes mathematics {
   0% {
     clip-path: polygon(
