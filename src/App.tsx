@@ -2,6 +2,8 @@ import "./App.scss";
 import { useState } from "react";
 import InputField from "./components/InputField";
 import MainTopic from "./components/MainTopic";
+import GraphPanel from "./components/GraphPanel";
+import { useGraphData } from "./hooks/useGraphData";
 
 const topics: string[] = (import.meta.env.VITE_TOPICS as string).split(",");
 
@@ -34,12 +36,19 @@ function applyTheme(topic: string) {
 function App() {
   const [topic, setTopic] = useState("");
   const [actualTopic, setActualTopic] = useState("");
+  const [visitedPages, setVisitedPages] = useState<Set<string>>(new Set());
+
+  const { nodes: graphNodes, edges: graphEdges } = useGraphData(visitedPages);
 
   const handleChangeActualTopic = (
     nextTopic: string,
     included: boolean = true,
   ) => {
     const t = included ? nextTopic : "\\unknown";
+    setVisitedPages((prev) => {
+      if (prev.has(t)) return prev;
+      return new Set(prev).add(t);
+    });
     document.documentElement.style.setProperty("--animation", t.slice(1));
     if (!document.startViewTransition) {
       applyTheme(t);
@@ -61,16 +70,26 @@ function App() {
   };
 
   return (
-    <div className="cont">
-      <MainTopic topic={actualTopic} onClickButtons={handleChangeTopic} />
-      <InputField
-        topic={actualTopic}
-        value={topic}
-        onChange={handleChangeTopic}
-        onEnter={(s: string) => handleChangeActualTopic(s, topics.includes(s))}
-      >
-        \about
-      </InputField>
+    <div className="app-layout">
+      <GraphPanel
+        nodes={graphNodes}
+        edges={graphEdges}
+        currentTopic={actualTopic}
+        onNavigate={handleChangeTopic}
+      />
+      <div className="cont">
+        <MainTopic topic={actualTopic} onClickButtons={handleChangeTopic} />
+        <InputField
+          topic={actualTopic}
+          value={topic}
+          onChange={handleChangeTopic}
+          onEnter={(s: string) =>
+            handleChangeActualTopic(s, topics.includes(s))
+          }
+        >
+          \about
+        </InputField>
+      </div>
     </div>
   );
 }

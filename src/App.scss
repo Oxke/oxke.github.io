@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Sono:wght,MONO@200..800,0.19&family=Syne+Mono&display=swap");
 
+$sidebar-w: min(250px, 20vw);
+
 $bg-color: var(--bg-color, #292a3d);
 $txt-color: var(--txt-color, #b8e3cf);
 $cmd-color: var(--cmd-color, #101118);
@@ -8,6 +10,17 @@ $cmd-accent: var(--cmd-accent, #101118);
 $cmd-bg-accent: var(--cmd-bg-accent, #e2f3eb);
 $bg-image: var(--bg-image, undefined);
 $animation: var(--animation, about);
+
+.app-layout {
+  display: grid;
+  grid-template-columns: $sidebar-w minmax(0, 1fr);
+  align-items: start;
+}
+
+.cont {
+  position: relative;
+  min-width: 0;
+}
 
 body {
   background-image: $bg-image;
@@ -39,21 +52,10 @@ body {
   font-style: normal;
   font-variation-settings: "MONO" 0.3;
   // box-sizing: border-box;
-  padding: 5.5em 25%;
+  $width: min(600px, 50%);
+  padding: 5.5em calc(100% - 17% - $width) 5.5em 17%;
   padding-bottom: 2em;
   justify-content: center;
-}
-
-@media only screen and (max-width: 1200px) {
-  .mainTopic {
-    $width: max(440px, 63%);
-    padding: 5.5em calc(50% - $width / 2);
-  }
-}
-@media only screen and (max-width: 600px) {
-  .mainTopic {
-    padding: 5.5em 5%;
-  }
 }
 
 .overlay {
@@ -89,24 +91,53 @@ h1 {
 #input {
   position: absolute;
   top: 0;
-  left: 24.5%;
-  width: 51%;
+  left: 16.5%;
+  width: min(51%, 600px);
   border: none;
   outline: none;
   // view-transition-name: input;
 }
 
+@media only screen and (max-width: 1500px) {
+  #input {
+    $width: max(450px, 64%);
+    left: calc(50% - $width * .65);
+    width: $width;
+  }
+  .mainTopic {
+    $width: max(440px, 63%);
+    padding: 5.5em calc(50% - $width * .35) 5.5em calc(50% - $width * .65);
+  }
+}
 @media only screen and (max-width: 1200px) {
   #input {
     $width: max(450px, 64%);
-    left: calc(50% - $width / 2);
+    left: calc(50% - $width * .5);
     width: $width;
+  }
+  .mainTopic {
+    $width: max(440px, 63%);
+    padding: 5.5em calc(50% - $width * .5) 5.5em calc(50% - $width * .5);
+  }
+}
+@media only screen and (max-width: 800px) {
+  #input {
+    $width: max(450px, 64%);
+    left: calc(50% - $width / 2 );
+    width: $width;
+  }
+  .mainTopic {
+    $width: max(440px, 63%);
+    padding: 5.5em calc(50% - $width / 2);
   }
 }
 @media only screen and (max-width: 600px) {
   #input {
     left: 1em;
     width: calc(100% - 2em);
+  }
+  .mainTopic {
+    padding: 5.5em 5%;
   }
 }
 
@@ -356,4 +387,80 @@ h1 {
 
 ::view-transition-new(root) {
   animation: $animation 1s ease-in;
+}
+
+// ── Graph panel ──────────────────────────────────────
+
+.graph-panel {
+  position: sticky;
+  top: 0;
+  width: $sidebar-w;
+  height: 60vh;
+  background-color: $bg-color;
+  // background-color: grey; // FOR DEBUG PURPOSES
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+
+  svg {
+    flex: 1;
+    width: 100%;
+    display: block;
+    overflow: visible;
+  }
+}
+
+.graph-edge {
+  stroke: $txt-color;
+  stroke-opacity: 0.2;
+  stroke-width: 1.5;
+}
+
+.node-current {
+  fill: $cmd-bg-accent;
+  stroke: $cmd-bg-accent;
+  stroke-width: 2;
+}
+
+.node-visited {
+  fill: $txt-color;
+  fill-opacity: 0.35;
+  stroke: $txt-color;
+  stroke-width: 1.5;
+}
+
+.node-discovered {
+  fill: none;
+  stroke: $txt-color;
+  stroke-width: 1.5;
+  stroke-dasharray: 4 2;
+}
+
+.label-current {
+  fill: $cmd-bg-accent;
+  font-family: "Syne Mono", sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.label-default {
+  fill: $txt-color;
+  font-family: "Syne Mono", sans-serif;
+  font-size: 11px;
+  user-select: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .graph-panel {
+    display: none;
+  }
+  .cont {
+    min-width: 0;
+  }
 }
