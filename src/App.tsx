@@ -45,19 +45,21 @@ function App() {
     included: boolean = true,
   ) => {
     const t = included ? nextTopic : "\\unknown";
-    setVisitedPages((prev) => {
-      if (prev.has(t)) return prev;
-      return new Set(prev).add(t);
-    });
-    document.documentElement.style.setProperty("--animation", t.slice(1));
-    if (!document.startViewTransition) {
+
+    const applyTopicChange = () => {
+      setVisitedPages((prev) => {
+        if (prev.has(t)) return prev;
+        return new Set(prev).add(t);
+      });
       applyTheme(t);
       setActualTopic(t);
+    };
+
+    document.documentElement.style.setProperty("--animation", t.slice(1));
+    if (!document.startViewTransition) {
+      applyTopicChange();
     } else
-      document.startViewTransition(() => {
-        applyTheme(t);
-        setActualTopic(t);
-      });
+      document.startViewTransition(() => applyTopicChange());
   };
 
   const handleChangeTopic = (nextTopic: string) => {

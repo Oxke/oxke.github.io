@@ -1,10 +1,6 @@
 import TopicButton from "../components/TopicButton";
 
-interface Props {
-  onClickButtons: (nextTopic: string) => void;
-}
-
-function Contact({ onClickButtons }: Props) {
+function Contact() {
   return (
     <>
       <p>

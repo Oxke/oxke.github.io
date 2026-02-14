@@ -26,8 +26,10 @@ export default function GraphPanel({
   onNavigate,
 }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
-  // Store positions as fractions (0-1) of SVG size so they survive resizes
-  const posCache = useRef<Map<string, { rx: number; ry: number }>>(new Map());
+  // Store absolute + normalized positions to preserve layout across updates/resizes
+  const posCache = useRef<
+    Map<string, { x: number; y: number; rx: number; ry: number }>
+  >(new Map());
 
   // Stable callback ref so D3 listeners don't go stale
   const onNavigateRef = useRef(onNavigate);
@@ -35,6 +37,29 @@ export default function GraphPanel({
   const handleClick = useCallback((_: unknown, d: SimNode) => {
     onNavigateRef.current(d.id);
   }, []);
+
+  useEffect(() => {
+    const svgEl = svgRef.current;
+    if (!svgEl) return;
+
+    const svg = d3.select(svgEl);
+
+    svg
+      .selectAll<SVGCircleElement, SimNode>("circle")
+      .attr("class", (d) =>
+        d.id === currentTopic
+          ? "node-current"
+          : d.visited
+            ? "node-visited"
+            : "node-discovered",
+      );
+
+    svg
+      .selectAll<SVGTextElement, SimNode>("text")
+      .attr("class", (d) =>
+        d.id === currentTopic ? "label-current" : "label-default",
+      );
+  }, [currentTopic]);
 
   useEffect(() => {
     const svgEl = svgRef.current;
@@ -74,8 +99,12 @@ export default function GraphPanel({
       const cached = posCache.current.get(n.id);
       return {
         ...n,
-        x: cached ? cached.rx * width : aboutX + (Math.random() - 0.5) * 60,
-        y: cached ? cached.ry * height : aboutY + (Math.random() - 0.5) * 60,
+        x: cached
+          ? clampX(cached.x ?? cached.rx * width)
+          : aboutX + (Math.random() - 0.5) * 60,
+        y: cached
+          ? clampY(cached.y ?? cached.ry * height)
+          : aboutY + (Math.random() - 0.5) * 60,
       };
     });
 
@@ -224,12 +253,16 @@ export default function GraphPanel({
         .attr("y2", (d) => (d.target as SimNode).y!);
 
       node.attr("transform", (d) => `translate(${d.x},${d.y})`);
+
+      savePositions();
     });
 
     const savePositions = () => {
       simNodes.forEach((n) => {
         if (n.x != null && n.y != null) {
           posCache.current.set(n.id, {
+            x: n.x,
+            y: n.y,
             rx: n.x / width,
             ry: n.y / height,
           });
@@ -250,7 +283,7 @@ export default function GraphPanel({
       savePositions();
       simulation.stop();
     };
-  }, [nodes, edges, currentTopic, handleClick]);
+  }, [nodes, edges, handleClick]);
 
   return (
     <aside className="graph-panel">

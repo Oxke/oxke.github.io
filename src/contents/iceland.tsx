@@ -14,12 +14,15 @@ export default function Iceland({ onClickButtons }: Props) {
         delicious.
       </p>
       <p>
-        Osea visited Iceland with his girlfriend,{" "}
-        <TopicButton onClick={onClickButtons} text="Elena" />, and they had an
-        amazing time exploring the country together. They visited{" "}
-        <TopicButton onClick={onClickButtons} text="AI" /> and{" "}
-        <TopicButton onClick={onClickButtons} text="mathematics" />. Here are
-        some photos from their trip:
+        I visited Iceland with my girlfriend,{" "}
+        <TopicButton onClick={onClickButtons} text="Elena" />, and we had an
+        amazing time exploring the country together. We took ten days to drive
+        along the ring road, met some other other travelers multiple times
+        throughout the journey, and we most notably ate almost always instant
+        noodles, paid 56 krónar, i.e. 36 cents at the time. It was an adventure.
+      </p>
+      <p>
+        Here are some photos from the trip
       </p>
       <img
         width="100%"
