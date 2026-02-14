@@ -6,7 +6,7 @@ export const generatedLinkMap: Record<string, string[]> = {
   "\\ai": ["\\mathematics"],
   "\\contact": [],
   "\\elena": ["\\iceland", "\\mathematics"],
-  "\\iceland": ["\\ai", "\\elena", "\\mathematics"],
+  "\\iceland": ["\\elena"],
   "\\mathematics": ["\\ai"],
   "\\unknown": ["\\about"],
 };
