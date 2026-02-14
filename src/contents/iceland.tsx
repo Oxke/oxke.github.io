@@ -1,4 +1,5 @@
 import TopicButton from "../components/TopicButton";
+import LazyImage from "../components/LazyImage";
 
 interface Props {
   onClickButtons: (nextTopic: string) => void;
@@ -24,8 +25,7 @@ export default function Iceland({ onClickButtons }: Props) {
       <p>
         Here are some photos from the trip
       </p>
-      <img
-        width="100%"
+      <LazyImage
         src="/images/iceland/iceland1.jpg"
         alt="Iceland 1"
         className="image"
