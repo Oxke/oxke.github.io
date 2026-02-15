@@ -11,7 +11,7 @@ function Contact() {
         />{" "}
         or to my institutional email address{" "}
          <TopicButton
-          href="mailto:me@osea.dev"
+          href="mailto:oseafracchia@iusspavia.it"
           text="oseafracchia@iusspavia.it"
         />
       </p>
